@@ -1,0 +1,2 @@
+If the folders "reduced" and "mapped" are not present,
+make sure to create them before running master.py which is the main file
