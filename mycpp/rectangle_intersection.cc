@@ -8,10 +8,10 @@ struct Rect {
 Rect IntersectRectangle(const Rect& r1, const Rect& r2)
 {
 		  
-	if(r1.x<=r2.x + r2.width && r2.x<=r1.x + r1.width && r1.y<=r2.y+r2.width && r2.y<=r1.y+r1.width)		
+	if(r1.x<=r2.x + r2.width && r2.x<=r1.x + r1.width && r1.y<=r2.y+r2.height && r2.y<=r1.y+r1.height)		
 		return {max(r1.x, r2.x),max(r1.y, r2.y),min(r1.x+r1.width,r2.x+r2.width)-max(r1.x,r2.x),min(r1.y+r1.height,r2.y+r2.height)-max(r1.y,r2.y)};
 	else
-		return {-1,-1,0,0};	
+		return {0,0,-1,-1};	
 		
 }
 
