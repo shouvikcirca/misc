@@ -1,17 +1,3 @@
-/*
-#include <iterator>
-#include <stack>
-#include <string>
-#include <unordered_map>
-
-#include "test_framework/generic_test.h"
-
-using std::stack;
-using std::string;
-using std::unordered_map;
-
-*/
-
 #include<bits/stdc++.h>
 using namespace std;
 
