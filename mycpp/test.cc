@@ -6,7 +6,7 @@ int main()
 
 
 ////////    SETS  ////////////////
-
+/*
 	unordered_set<int> us;
 	set<int> s;
 
@@ -37,7 +37,7 @@ int main()
 		cout<<i<<" ";
 	cout<<endl;
 
-
+*/
 
 /*
 	int i=0;
@@ -61,6 +61,30 @@ int main()
 */
 
 
+/////////////////////////////////////////////////////////
+
+//////////////////////  STRINGS ////////////////////////
+/*
+	string s = "optimusprime";
+	cout<<s.substr(0,5)<<endl; // The 2nd arg of.substr() is the offset
+
+*/
+
+////////////////////////////////////////////////////////
+
+
+//////////////////// UNORDERED MAPS ////////////////////////
+/*
+	unordered_map<int,int> kvs;
+
+	kvs[2] = 20;
+
+	cout<<kvs.at(2)<<endl;
+	cout<<kvs.count(2)<<endl;
+
+	kvs.clear();
+	cout<<kvs.count(2)<<endl;
+*/
 
 
 	return 0;
