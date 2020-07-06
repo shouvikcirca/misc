@@ -70,6 +70,39 @@ int main()
 
 */
 
+
+/*
+	string s="";
+	cout<<(s[s.length()-1] == 't')<<endl;
+
+*/
+
+
+/*
+	string s="beta";
+	//cout<<"alpha"+" "+s<<endl; This cannot be done
+	cout<<"alpha"+s<<endl; // This can be done
+
+	//cout<<s.append("is not","alpha")<<endl; cannot be done
+	cout<<s.append("morone")<<endl; // can be done
+*/
+
+
+/*
+	string s = "testthis is a testtest to see if testestest it works";
+	string sub = "test";
+	int pos=0;
+	while(pos<=s.length()-1)
+	{
+		pos = s.find(sub,pos);
+		if(pos == string::npos)
+			break;
+		cout<<pos<<" ";
+		pos+=1;
+	}
+	cout<<endl;
+*/
+
 ////////////////////////////////////////////////////////
 
 
@@ -86,6 +119,60 @@ int main()
 	cout<<kvs.count(2)<<endl;
 */
 
+
+/////////////////////////////////////////////////////////////
+
+///////////////////  VECTORS ///////////////////////////////
+
+/*
+	vector<int> vec {1,2,4};
+	vec.insert(vec.begin()+2,3);
+
+	for(int i:vec)
+		cout<<i<<" ";
+	cout<<endl;
+
+	cout<<vec.back()<<endl;
+
+*/
+
+//////////////////////////////////////////////////////////
+
+////////////////// PRIORITY QUEUES ////////////////////////
+
+/*
+	priority_queue <int, vector<int>, less<int>> maxheap;
+	priority_queue <int, vector<int>, greater<int>> minheap;
+	maxheap.push(10);
+	maxheap.push(5);
+	maxheap.push(20);
+	maxheap.push(2);
+
+	minheap.push(10);
+	minheap.push(5);
+	minheap.push(20);
+	minheap.push(2);
+
+	cout<<"Minheap"<<" ";
+	while(!minheap.empty())
+	{
+		cout<<minheap.top()<<" ";
+		minheap.pop();
+	}
+
+	cout<<endl;
+
+	cout<<"Maxheap"<<" ";
+	while(!maxheap.empty())
+	{
+		cout<<maxheap.top()<<" ";
+		maxheap.pop();
+	}
+
+	cout<<endl;
+*/
+
+////////////////////////////////////////////////////////////
 
 	return 0;
 }
