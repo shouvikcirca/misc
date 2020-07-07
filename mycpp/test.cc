@@ -118,8 +118,34 @@ int main()
 	kvs.clear();
 	cout<<kvs.count(2)<<endl;
 */
+/*
+	unordered_map<string,int> kvs;
+	kvs["a"] = 1;
+	kvs["b"] = 2;
+	kvs["c"] = 3;
 
+	for(auto i:kvs)
+	{
+		cout<<i.first<<":"<<i.second;
+		cout<<endl;
+	}
 
+*/
+/*
+	vector<int> a;
+	cout<<a.empty()<<endl;
+	cout<<a.size()<<endl;
+
+*/
+	unordered_map<int,int> um;
+	um[1] = 2;
+	um[1] = 2;
+
+	for(auto i:um)
+	{
+		cout<<i.first<<":"<<i.second;
+		cout<<endl;
+	}
 /////////////////////////////////////////////////////////////
 
 ///////////////////  VECTORS ///////////////////////////////
