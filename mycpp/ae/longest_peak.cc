@@ -16,7 +16,6 @@ int longestPeak(vector<int> array)
 			increasing.push_back({start,end, (end-start+1)});
 			start = i;
 		}
-
 	}
 
 	start = end = array.size()-1;
@@ -26,25 +25,21 @@ int longestPeak(vector<int> array)
 			end = i;
 		else
 		{
-
 			for(auto j: increasing)
 			{
 				if((end == j[1]) && (j[0]<j[1]) && (start - j[0] + 1 )>lpeak)
 					lpeak = start - j[0] + 1;
-
 			}
 			start = i;
 		}
 	}
-
 	return lpeak;
 }
+
 int main()
 {
 	vector<int> array {1,2,3,3,4,0,10,6,5,-1,-3,2,3};
 	cout<<longestPeak(array)<<endl;
 }
-
-
 
 
