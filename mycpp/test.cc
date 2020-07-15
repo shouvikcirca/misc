@@ -137,6 +137,7 @@ int main()
 	cout<<a.size()<<endl;
 
 */
+/*
 	unordered_map<int,int> um;
 	um[1] = 2;
 	um[1] = 2;
@@ -146,6 +147,7 @@ int main()
 		cout<<i.first<<":"<<i.second;
 		cout<<endl;
 	}
+*/
 /////////////////////////////////////////////////////////////
 
 ///////////////////  VECTORS ///////////////////////////////
@@ -161,6 +163,14 @@ int main()
 	cout<<vec.back()<<endl;
 
 */
+
+	vector<int> a {1};
+	a.push_back({});
+
+	for(auto i:a)
+		cout<<i<<" ";
+	cout<<endl;
+
 
 //////////////////////////////////////////////////////////
 
