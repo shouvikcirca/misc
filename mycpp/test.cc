@@ -1,6 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+void egfunction(vector<vector<char>>&);
 int main()
 {
 
@@ -163,15 +164,26 @@ int main()
 	cout<<vec.back()<<endl;
 
 */
-
+/*
 	vector<int> a {1};
 	a.push_back({});
 
 	for(auto i:a)
 		cout<<i<<" ";
 	cout<<endl;
+*/
+/*
+	int r = 5, c=3;
+	vector<vector<int>> vec (r, vector<int> (c,7));
 
+	for(auto i:vec)
+	{
+		for(auto j:i)
+			cout<<j<<" ";
+		cout<<endl;
+	}
 
+*/
 //////////////////////////////////////////////////////////
 
 ////////////////// PRIORITY QUEUES ////////////////////////
@@ -210,5 +222,38 @@ int main()
 
 ////////////////////////////////////////////////////////////
 
+/////////////////// FUNCTIONS /////////////////////////////
+
+
+
+	vector<vector<char>> board(5, vector<char> (3,' '));
+	egfunction(board);
+
+
+	for(auto i: board)
+	{
+		for(auto j:i)
+			cout<<j<<"\t";
+		cout<<endl;
+	}
 	return 0;
+
+////////////////////////////////////////////////////////////
+
+
 }
+
+
+
+void egfunction(vector<vector<char>> &board)
+{
+	for(int i=0;i<board.size();i++)
+		for(int j=0;j<board[0].size();j++)
+			if((i+j)%2 == 0)
+				board[i][j] = '.';
+			
+
+}
+
+
+
