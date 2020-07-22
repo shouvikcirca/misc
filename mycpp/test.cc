@@ -220,12 +220,36 @@ int main()
 	cout<<endl;
 */
 
+	// lambda
+	auto compare = [](vector<int> lhs, vector<int> rhs)
+			{
+				return lhs[2]<rhs[2];
+			};
+
+	priority_queue <vector<int>, vector<vector<int>>, decltype(compare)> pq(compare);
+
+	pq.push({1,1,3});
+	pq.push({3,2,2});
+	pq.push({2,3,1});
+
+	vector<int> v;
+	while(!pq.empty())
+	{
+		v = pq.top();
+		for(auto i:v)
+			cout<<i<<" ";
+		cout<<endl;
+		pq.pop();
+	}
+	cout<<endl;
+
+
 ////////////////////////////////////////////////////////////
 
 /////////////////// FUNCTIONS /////////////////////////////
 
 
-
+/*
 	vector<vector<char>> board(5, vector<char> (3,' '));
 	egfunction(board);
 
@@ -237,14 +261,14 @@ int main()
 		cout<<endl;
 	}
 	return 0;
+*/
 
 ////////////////////////////////////////////////////////////
 
 
 }
 
-
-
+/*
 void egfunction(vector<vector<char>> &board)
 {
 	for(int i=0;i<board.size();i++)
@@ -254,6 +278,5 @@ void egfunction(vector<vector<char>> &board)
 			
 
 }
-
-
+*/
 

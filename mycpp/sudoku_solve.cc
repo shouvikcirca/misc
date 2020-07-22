@@ -3,18 +3,17 @@ using namespace std;
 
 bool checkValidity(int i, int j, vector<vector<int>> &board)
 {
+	// Checking for same element in row
 	for(int k=0;k<board[0].size();k++)
-	{
 		if((k!=j) && (board[i][k] == board[i][j]))
 			return false;
-	}
 
+	// Checking for same element in column
 	for(int k=0;k<board.size();k++)
-	{
 		if((k!=i) && (board[k][j] == board[i][j]))
 			return false;
-	}
 	
+	//Inferring subgrid in which element is located
 	int hf,he,vf,ve;
 
 	if(j>=0 && j<=2)
@@ -43,14 +42,11 @@ bool checkValidity(int i, int j, vector<vector<int>> &board)
 		vf=6;ve=8;
 	}
 
+	// Checking for same element in subgrid
 	for(int l=vf;l<=ve;l++)
-	{
 		for(int k=hf;k<=he;k++)
-		{
 			if((k!=j || l!=i) && board[l][k]==board[i][j])
 				return false;
-		}
-	}
 	return true;
 }
 
@@ -80,9 +76,7 @@ string Solve(int i, int j, vector<vector<int>> &board, int z)
 				return "success";
 		}
 		else
-		{
 			element+=1;
-		}
 	}
 
 	if(element>9)
@@ -139,5 +133,6 @@ int main()
 		}
 	}
 	cout<<"Valid"<<endl;
+	return 0;
 }	
 
