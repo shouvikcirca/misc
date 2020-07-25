@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//masterandcaptain
+
 void egfunction(vector<vector<char>>&);
 int main()
 {
