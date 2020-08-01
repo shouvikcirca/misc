@@ -9,6 +9,9 @@ loadEventListeners();
 function loadEventListeners()
 {
     form.addEventListener('submit', addTask);
+    taskList.addEventListener('click', removeTask);
+    clearbtn.addEventListener('click', clearTasks);
+    filter.addEventListener('keyup', filterTasks);
 }
 
 
@@ -21,6 +24,8 @@ function addTask(e)
         alert('Add a Task');
     }
 
+    else
+    {
     // In Materialize if you want the ul's to look good your ul should have a class 'collection' 
     // and the li's in it should have a class 'collectionItem' 
     const li = document.createElement('li');
@@ -39,7 +44,50 @@ function addTask(e)
     taskList.appendChild(li);
 
     taskInput.value='';
+    }
+
 
     e.preventDefault();
 }
+
+
+function removeTask(e)
+{
+    if(e.target.parentElement.classList.contains('delete-item'))
+    {
+        if(confirm('Are you sure about deleting'+' '+e.target.parentElement.parentElement.textContent))
+            e.target.parentElement.parentElement.remove();
+    }
+}
+
+
+function clearTasks(e)
+{
+    // This alternative is slower
+    // taskList.innerHTML = '';
+
+    // This alternative is faster
+    while(taskList.firstChild)
+        taskList.removeChild(taskList.firstChild);
+
+}
+
+function filterTasks(e)
+{
+    const text = e.target.value.toLowerCase();
+    document.querySelectorAll('.collection-item').forEach
+    (function(task){
+            const item = task.firstChild.textContent;
+            if(item.toLowerCase().indexOf(text) != -1)
+            {   
+                task.style.display = 'block';
+            }
+            else
+            {
+                task.style.display = 'none';
+            }
+        });
+}
+
+
 
