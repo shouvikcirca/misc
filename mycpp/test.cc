@@ -1,9 +1,11 @@
 #include<bits/stdc++.h>
+//#include<limits.h> for INT_MIN and INT_MAX 
+
 using namespace std;
 
 //masterandcaptain
 
-void egfunction(vector<vector<char>>&);
+//void egfunction(vector<vector<char>>&);
 int main()
 {
 
@@ -222,6 +224,9 @@ int main()
 	cout<<endl;
 */
 
+
+
+/*
 	// lambda
 	auto compare = [](vector<int> lhs, vector<int> rhs)
 			{
@@ -244,7 +249,16 @@ int main()
 		pq.pop();
 	}
 	cout<<endl;
+*/
 
+
+	int a = INT_MIN;
+	int b = INT_MAX;
+	float d = (float)INT_MIN;
+	cout<<d<<endl;
+	int c = 21;
+	cout<<(a<c)<<endl;
+	cout<<(b<c)<<endl;
 
 ////////////////////////////////////////////////////////////
 
@@ -281,4 +295,7 @@ void egfunction(vector<vector<char>> &board)
 
 }
 */
+
+
+
 
