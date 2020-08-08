@@ -251,15 +251,13 @@ int main()
 	cout<<endl;
 */
 
+/*
+	vector<int> array;
+	vector<int> *p = &array;
+	p->push_back(21);
 
-	int a = INT_MIN;
-	int b = INT_MAX;
-	float d = (float)INT_MIN;
-	cout<<d<<endl;
-	int c = 21;
-	cout<<(a<c)<<endl;
-	cout<<(b<c)<<endl;
-
+	cout<<array.back()<<endl;
+*/
 ////////////////////////////////////////////////////////////
 
 /////////////////// FUNCTIONS /////////////////////////////
@@ -281,6 +279,21 @@ int main()
 
 ////////////////////////////////////////////////////////////
 
+
+///////////////// LIMITS //////////////////////////////////
+
+
+/*
+	int a = INT_MIN;
+	int b = INT_MAX;
+	float d = (float)INT_MIN;
+	cout<<d<<endl;
+	int c = 21;
+	cout<<(a<c)<<endl;
+	cout<<(b<c)<<endl;
+*/
+
+///////////////////////////////////////////////////////////
 
 }
 
