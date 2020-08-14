@@ -12,7 +12,7 @@ class BinaryTree {
 		void invertedInsert(vector<int> values, int i = 0);
 };
 
-void invertBinaryTree(BinaryTree *tree)
+void invertBinaryTreeRecurisive(BinaryTree *tree)
 {
 	BinaryTree *l, *r, *curr = tree;
 	if(curr)
@@ -23,8 +23,29 @@ void invertBinaryTree(BinaryTree *tree)
 		curr->right = l;
 
 		if(curr->left)
-			invertBinaryTree(curr->left);
+			invertBinaryTreeRecursive(curr->left);
 		if(curr->right)
-			invertBinaryTree(curr->right);
+			invertBinaryTreeRecursive(curr->right);
 	}
 }
+
+
+void invertBinaryTreeIterative(BinaryTree *tree)
+{
+		BinaryTree *curr, *temp;
+		queue<BinaryTree *> q;
+		q.push(tree);
+		while(!q.empty())
+		{
+				curr = q.front();
+				q.pop();
+				temp = curr->left;
+				curr->left = curr->right;
+				curr->right = temp;
+				if(curr->left)
+					q.push(curr->left);
+				if(curr->right)
+					q.push(curr->right);
+		}
+}
+
