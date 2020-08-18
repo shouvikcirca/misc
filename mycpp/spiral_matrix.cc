@@ -83,8 +83,8 @@ int main()
 
 	cout<<endl;
 
-vector<vector<char>> newspiral {{'S','P','I'},{'Z','E','R'},{'I','L','A'}};
-	vector<char> newns = spiralize(newspiral);
+	//vector<vector<char>> newspiral {{'S','P','I'},{'Z','E','R'},{'I','L','A'}};
+	//vector<char> newns = spiralize(newspiral);
 	
 
 	for(auto i: newspiral)
