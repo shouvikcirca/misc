@@ -1,109 +1,155 @@
 #include<bits/stdc++.h>
+#include <vector>
+#include<unordered_map>
 using namespace std;
 
-vector<string> checkValidity(int xlength, int ylength, string str, string pattern, char inverted)
+vector<string> checkxvalidity(string s, int xs)
 {
-	unordered_map<string,string> um;
-	int strind = 0, patternind = 0;
-	while(strind<str.length() && patternind<pattern.length())
+	string c;
+	for(int i=1;i<=(s.length()/xs);i++)
 	{
-		if(pattern[patternind] == 'x')
-		{
-			um[str.substr(strind,xlength)] = "x";
-			strind+=xlength;
-		}
-
-		else
-		{
-			um[str.substr(strind,ylength)] = "y";
-			strind+=ylength;
-		}
-
-		patternind+=1;
-
+		c = "";
+		for(int j=1;j<=xs;j++)
+			c+=s.substr(0,i);
+		if(c == s)
+			return {s.substr(0,i),""};
 	}
-
-	vector<string> returnwords;	
-
-	if(um.size()!=2)
-		return returnwords;
-	
-	string f="x",s="y";
-	if(inverted)
-	{
-		f = "y";
-		s = "x";
-	}
-	
-
-		for(auto i:um)
-		{
-			if(i.second == s)
-				returnwords.push_back(i.first);
-			else
-				returnwords.insert(returnwords.begin(),i.first);
-		}
-
-	return returnwords;
+	return {}; //	
 }
 
-
-vector<string> patternMatcher(string pattern, string str)
+vector<string> checkdualvalidity(string s, int xs, int ys, int xlength, int ylength, string pattern)
 {
+	int index=0;
+	int patternind = 0;	
+	string ns = "";
+	string x="",y="";
+	string prevx="", prevy="";
+
+	while(index<s.length())
+	{
+		if(pattern.at(patternind) == 'x')
+		{
+			x = s.substr(index, xlength);
+			if(prevx=="")
+				prevx = x;
+			else if(x!=prevx)
+				return {};
+			ns = ns + x;
+			index = index + xlength;
+		}
+		else if(pattern.at(patternind) == 'y')
+		{
+			y = s.substr(index, ylength);
+			if(prevy=="")
+				prevy = y;
+			else if(y!=prevy)
+				return {};
+			ns = ns + y;
+			index = index + ylength;
+		}
+		patternind+=1;
+	}
+
+	if (patternind<=pattern.length()-1)
+		return {};
+
+	if(ns == s)
+	{
+		if((x=="" && xs>=1) || (y=="" && ys>=1))
+			return {};
+		else
+			return {x,y};
+	}
+
+	else
+		return {};
+}
+
+vector<string> patternMatcher(string pattern, string s)
+{
+
+	if(s.length() == 0 || pattern.length() == 0)
+		return {};
+
 	string ns = "";
 	char inverted = 0;
-	if(str[0] == 'y')
+	if(s.at(0) == 'y')
 	{
 		inverted = 1;
-		for(auto i:pattern)
-			if(i == 'y')
+		for(int i=0;i<pattern.length();i++)
+		{
+			if(pattern.at(i) == 'y')
 				ns+='x';
 			else
 				ns+='y';
+		}
 		pattern = ns;
 	}
 
+	int xs = 0, ys = 0;
 
-	int xlength = 0,ylength=0, xs = 0, ys = 0, rem;
-	vector<string> validornot;
-
-	for(auto i:pattern)
+	for(int i=0;i<pattern.length();i++)
 	{
-		if(i == 'x')
+		if(pattern.at(i) == 'x')
 			xs+=1;
 		else
 			ys+=1;
 	}
 
-	if(xs == 0 || ys == 0)
-		return {};
-
-	while(xlength<str.length())
+	vector<string> returnvec;
+	string temp;
+	if(ys == 0)
 	{
-		xlength+=1;
-		
-		rem = (str.length() - (xlength*xs))%(ys);
-		if(rem == 0)
+		returnvec = checkxvalidity(s, xs);
+		if(inverted == 1)
 		{
-			ylength = (str.length() - (xlength*xs))/(ys);
-			validornot = checkValidity(xlength, ylength, str, pattern, inverted);
-			if(!validornot.empty())
-				return validornot;
+			temp = returnvec[0];
+			returnvec[0] = returnvec[1];
+			returnvec[1] = temp;
 		}
-
+		return returnvec;
 	}
-	return {};
-}
 
+
+	int xlength = 0, ylength = 0;
+
+	for(int i = 1;i<s.length();i++)
+	{
+		xlength = i;
+		ylength = (s.length() - (xlength*xs))%ys;
+		if(ylength == 0)
+			ylength = (s.length() - (xlength*xs))/ys;
+		else
+			continue;
+		if((xs*xlength + ys*ylength)>s.length())
+			return {}; //
+		returnvec = checkdualvalidity(s, xs, ys, xlength, ylength, pattern);
+		if(returnvec.empty())
+			continue;
+		else
+			break;
+	}
+
+	if(returnvec.empty())
+		return {}; //
+
+	if(inverted == 1)
+	{
+		temp = returnvec[0];
+		returnvec[0] = returnvec[1];
+		returnvec[1] = temp;
+	}
+	return returnvec;
+}
 
 int main()
 {
-	string str = "baddaddoombaddadoomibaddaddoombaddaddoombaddaddoombaddaddoomibaddaddoomibaddaddoom";
-	string pattern = "xyxxxyyx";
-	vector<string> pat = patternMatcher(pattern, str);
+	vector<string> s;
+	s = patternMatcher("xyxxxyyx","baddaddoombaddadoomibaddaddoombaddaddoombaddaddoombaddaddoomibaddaddoomibaddaddoom");
 
-	for(string i:pat)
+
+	for(auto i:s)
 		cout<<i<<" ";
 	cout<<endl;
-}
 
+}
