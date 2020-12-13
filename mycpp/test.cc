@@ -157,7 +157,15 @@ int main()
 
 ///////////////////  VECTORS ///////////////////////////////
 
+ 	
+	vector<int> vec {9,4,1,0,7};
+	sort(vec.begin(),vec.end());
+
+	for(int i:vec)
+		cout<<i<<" ";
+	cout<<endl;
 /*
+
 	vector<int> vec {1,2,4};
 	vec.insert(vec.begin()+2,3);
 
